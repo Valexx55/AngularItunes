@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:left">
+    <form class="form-inline">
+        <div class="form-group">
+          <input type="search"
+                 class="form-control"
+                 placeholder="Enter search string"
+                 #search>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="doSearch(search.value)">Search</button>
+      </form>
+  <div class="text-center">
+    <p class="lead" *ngIf="loading">Loading...</p>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"
+        *ngFor="let si of resultados">
+     <img width="100px" height="100px" src={{si.artworkUrl100}}>
+     <!-- <a target="_blank"
+         href="{{track.link}}">{{ track.track }}
+      </a>-->
+      {{si.artistName}} {{si.trackName}}
+      <audio src={{si.previewUrl}} controls="controls" type="audio/mpeg" preload="preload">
+      </audio>
+    </li>
+    
+  </ul>
+</div>
